@@ -9,14 +9,16 @@ public class SpriteSheet
 {
 	private String path;
 	private final int SIZE;
-	private int[][] pixels;
+	private int[] pixels;
+	
+	public final static SpriteSheet spriteSheet = new SpriteSheet("/res/newSpriteSheet.png", 256);
 
 	public SpriteSheet(String path, int SIZE)
 	{
 		this.path = path;
 		this.SIZE = SIZE;
 
-		pixels = new int[SIZE][SIZE];
+		pixels = new int[SIZE * SIZE];
 		
 		load();
 	}
@@ -30,20 +32,20 @@ public class SpriteSheet
 			int w = image.getWidth();
 			int h = image.getHeight();
 
-			int[] tempArray = new int[SIZE * this.SIZE];
-
-			for (int i = 0; i < SIZE; i++)
-			{
-				for (int j = 0; j < SIZE; j++)
-				{
-					tempArray[i * SIZE + j] = pixels[i][j];
-				}
-			}
-
-			image.getRGB(0, 0, w, h, tempArray, 0, w);
+			image.getRGB(0, 0, w, h, pixels, 0, w);
 		} catch (IOException e)
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public int[] getPixels()
+	{
+		return pixels;
+	}
+	
+	public int getSize()
+	{
+		return SIZE;
 	}
 }
