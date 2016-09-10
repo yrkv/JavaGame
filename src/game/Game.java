@@ -2,8 +2,6 @@ package game;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
@@ -12,6 +10,7 @@ import javax.swing.JFrame;
 
 import game.graphics.Screen;
 import game.graphics.Sprite;
+import game.graphics.SpriteSheet;
 
 public class Game extends JComponent
 {
@@ -51,8 +50,6 @@ public class Game extends JComponent
 	public void paintComponent(Graphics g)
 	{
 		Graphics2D g2 = (Graphics2D) g;
-		
-		screen.renderSprite(Sprite.test, 0, 0);
 		
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.getPixels()[i];

@@ -21,7 +21,7 @@ public class Screen
 		{
 			for (int j = 0; j < sprite.getWidth(); j++)
 			{
-				pixels[y * width + x] = sprite.getPixels()[x + (i + y) * sprite.getWidth() + j];
+				pixels[x + (i + y) * width + j] = sprite.getPixels()[i * sprite.getWidth() + j];
 			}
 		}
 	}

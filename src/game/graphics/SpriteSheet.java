@@ -11,24 +11,27 @@ public class SpriteSheet
 	private final int SIZE;
 	private int[] pixels;
 	
-	public final static SpriteSheet spriteSheet = new SpriteSheet("/res/newSpriteSheet.png", 256);
+	public static SpriteSheet spriteSheet = new SpriteSheet("/newSpriteSheet.png", 256);
 
 	public SpriteSheet(String path, int SIZE)
 	{
 		this.path = path;
-		this.SIZE = SIZE;
+		this.SIZE = SIZE;	
 
 		pixels = new int[SIZE * SIZE];
 		
+		
+		
 		load();
+		
+		
 	}
 
 	private void load()
 	{
 		try
 		{
-			BufferedImage image = ImageIO
-					.read(SpriteSheet.class.getResource(path));
+			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
 			int w = image.getWidth();
 			int h = image.getHeight();
 
@@ -42,6 +45,11 @@ public class SpriteSheet
 	public int[] getPixels()
 	{
 		return pixels;
+	}
+	
+	public int getPixel()
+	{
+		return pixels.length;
 	}
 	
 	public int getSize()

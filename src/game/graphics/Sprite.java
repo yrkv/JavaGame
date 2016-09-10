@@ -2,18 +2,18 @@ package game.graphics;
 
 public class Sprite
 {
-	private final int x;
-	private final int y;
-	private final int width;
-	private final int height;
+	private int x;
+	private int y;
+	private int width;
+	private int height;
 	
-	private final int[] pixels;
+	private int[] pixels;
 
-	public static Sprite test = new Sprite(SpriteSheet.spriteSheet, 0, 0, 16, 16);
+	public static Sprite aaa = new Sprite(SpriteSheet.spriteSheet, 0, 0, 16, 16);
 
 	public Sprite(SpriteSheet sheet, int x, int y, int width, int height)
 	{
-		this.pixels = new int[width * height];
+		pixels = new int[width * height];
 		
 		this.x = x;
 		this.y = y;
@@ -26,6 +26,7 @@ public class Sprite
 			for (int j = 0; j < width; j++)
 			{
 				pixels[i * width + j] = sheet.getPixels()[x + (i + y) * sheet.getSize() + j];
+				pixels[0] = sheet.getPixels()[0];
 			}
 		}
 	}
@@ -43,5 +44,10 @@ public class Sprite
 	public int[] getPixels()
 	{
 		return pixels;
+	}
+	
+	public int getPixel(int i)
+	{
+		return pixels[i];
 	}
 }
