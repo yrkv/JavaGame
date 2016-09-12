@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import game.graphics.Screen;
 import game.graphics.Sprite;
 import game.graphics.SpriteSheet;
+import game.tile.BlueBrick;
+import game.tile.Tile;
 
 public class Game extends JComponent
 {
@@ -18,19 +20,21 @@ public class Game extends JComponent
 	public static int width = 256;
 	public static int height = width * 9 / 16;
 	public static double scale = 3;
-	
-	private JFrame frame; 
+
+	private JFrame frame;
 	private Screen screen;
-	
-	private BufferedImage image = new BufferedImage(width, height,BufferedImage.TYPE_INT_RGB);
-	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
-	
-	public Game() 
-	{ 
+
+	private BufferedImage image = new BufferedImage(width, height,
+			BufferedImage.TYPE_INT_RGB);
+	private int[] pixels = ((DataBufferInt) image.getRaster()
+			.getDataBuffer()).getData();
+
+	public Game()
+	{
 		frame = new JFrame();
 		screen = new Screen(width, height);
 	}
-	
+
 	public static void main(String[] args)
 	{
 		Game game = new Game();
@@ -41,7 +45,7 @@ public class Game extends JComponent
 		game.frame.setTitle("game");
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.frame.setLocationRelativeTo(null);
-		
+
 		game.frame.add(game);
 
 		game.frame.setVisible(true);
@@ -50,11 +54,16 @@ public class Game extends JComponent
 	public void paintComponent(Graphics g)
 	{
 		Graphics2D g2 = (Graphics2D) g;
+
+		Tile blue = new BlueBrick(0, 0);
 		
-		for (int i = 0; i < pixels.length; i++) {
+		screen.renderSprite(blue.getSprite(), 0, 0);
+		
+		for (int i = 0; i < pixels.length; i++)
+		{
 			pixels[i] = screen.getPixels()[i];
 		}
-		
+
 		g2.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 	}
 }

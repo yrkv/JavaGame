@@ -9,7 +9,7 @@ public class Sprite
 	
 	private int[] pixels;
 
-	public static Sprite aaa = new Sprite(SpriteSheet.spriteSheet, 0, 0, 16, 16);
+//	public static Sprite aaa = new Sprite(SpriteSheet.spriteSheet, 0, 0, 16, 16);
 
 	public Sprite(SpriteSheet sheet, int x, int y, int width, int height)
 	{
