@@ -11,8 +11,8 @@ import javax.swing.JFrame;
 import game.graphics.Screen;
 import game.graphics.Sprite;
 import game.graphics.SpriteSheet;
-import game.tile.BlueBrick;
-import game.tile.Tile;
+import game.level.tile.BlueBrick;
+import game.level.tile.Tile;
 
 public class Game extends JComponent
 {

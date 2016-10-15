@@ -1,4 +1,4 @@
-package game.tile;
+package game.level.tile;
 
 import game.graphics.Sprite;
 import game.graphics.SpriteSheet;
